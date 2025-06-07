@@ -482,3 +482,76 @@ textarea {
   margin-bottom: 1rem;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
+
+/*Error page*/
+.error-wrapper {
+  position: relative;
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.glow-background {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at 50% 50%, #3b82f6 0%, transparent 70%);
+  animation: glow 10s ease-in-out infinite alternate;
+  filter: blur(100px);
+  z-index: 0;
+}
+
+@keyframes glow {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1.2);
+  }
+}
+
+.error-container {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.error-404 {
+  font-size: 8rem;
+  font-weight: 800;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+}
+
+.error-heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f1f5f9;
+}
+
+.error-text {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.home-link {
+  background-color: #3b82f6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.home-link:hover {
+  background-color: #2563eb;
+}
