@@ -27,7 +27,10 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
   color: var(--primary-color);
   margin-bottom: 0.5em;
@@ -61,7 +64,9 @@ button:hover {
   box-shadow: 0 0 15px var(--primary-color);
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   background: var(--input-bg);
   color: var(--text-color);
   border: 1px solid var(--primary-color);
@@ -72,7 +77,9 @@ input, textarea, select {
   transition: 0.3s ease;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 0 8px var(--accent-color);
@@ -117,7 +124,8 @@ input:focus, textarea:focus, select:focus {
   padding: 2rem;
 }
 
-input, textarea {
+input,
+textarea {
   margin-bottom: 4rem;
 }
 
@@ -132,37 +140,37 @@ input, textarea {
 
 /* --- HOMEPAGE SECTIONS --- */
 .menu-toggle {
-    display: none;
-    font-size: 1rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+  display: none;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    .nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #040404;
-        flex-direction: column;
-        display: none;
-        padding: 1rem;
-    }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #040404;
+    flex-direction: column;
+    display: none;
+    padding: 1rem;
+  }
 
-    .nav.active {
-        display: flex;
-    }
+  .nav.active {
+    display: flex;
+  }
 
-    .nav a {
-        padding: 0.5rem 0;
-    }
+  .nav a {
+    padding: 0.5rem 0;
+  }
 }
 
 
@@ -207,28 +215,31 @@ input, textarea {
   margin: 0 auto;
 }
 
-.hero-content h2 {
-  font-size: 2.5rem;
-  width: 29ch;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 2s steps(29) 1 forwards;
-}
-
-@keyframes typing {
-  from {
-    width: 0ch;
-  }
-  to {
-    width: 29ch;
-  }
-}
-
 .hero-content p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-content h2 {
+    font-size: 2.5rem;
+    width: 29ch;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(29) 1 forwards;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0ch;
+    }
+
+    to {
+      width: 29ch;
+    }
+  }
 }
 
 /* Sections */
@@ -279,6 +290,7 @@ input, textarea {
   padding: 1.5rem 1rem;
   text-align: center;
 }
+
 /* --- Enhanced Contact Section --- */
 
 .contact-section {
@@ -321,6 +333,7 @@ input, textarea {
 .contact-form button {
   margin-top: 1rem;
 }
+
 /* --- Services Page Styling --- */
 
 .services-page-container {
