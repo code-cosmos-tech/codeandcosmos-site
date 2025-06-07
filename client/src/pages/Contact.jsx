@@ -19,7 +19,7 @@ export function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8080/form/contact", {
+    const response = await fetch("https://codeandcosmos-site.onrender.com/form/contact", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
