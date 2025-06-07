@@ -38,10 +38,10 @@ export function Craftmen() {
             
           </div>
           <div className="craftsman-card">
-            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Arjun Iyer" className="craftsman-img" />
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQHseKdPiznpyw/profile-displayphoto-shrink_800_800/B56ZdJ1VIlG0Ac-/0/1749290407592?e=1754524800&v=beta&t=ppV9aiXddCKyp0V81vY0xWa5AF7uvv7htjK26VSR2IE" alt="Arjun Iyer" className="craftsman-img" />
             <h4>Jay Dholu</h4>
             <a href="https://www.linkedin.com/in/jay-dholu-433a582b1/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <i class="fa-brands fa-x-twitter"></i>
+            <a href="https://x.com/jay_dholu"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://github.com/Jay-Dholu" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.instagram.com/jaydholu0902/"><i class="fa-brands fa-instagram"></i></a>
             
