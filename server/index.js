@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const connectDb = require("./utilities/db.js");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const router = require("./router/route.js");
 const contactRouter = require("./router/contactRoute.js");
 const errorFunction = require("./middlewares/error-func.js");
