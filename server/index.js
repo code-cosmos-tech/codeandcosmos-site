@@ -9,7 +9,7 @@ const errorFunction = require("./middlewares/error-func.js");
 const cors = require("cors");
 
 const corsOption = {
-    origin: "http://localhost:5173",
+    origin: "https://codeandcosmos.onrender.com",
     methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
     credentials: true
 }
