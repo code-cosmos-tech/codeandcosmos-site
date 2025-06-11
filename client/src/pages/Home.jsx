@@ -80,7 +80,7 @@ export function Home() {
               falloff='linear'
             />
           </div>
-          <button className="btn" onClick={() => navigate('/agency')}>About Us</button>
+          <button className="btn contact-btn" onClick={() => navigate('/agency')}>About Us</button>
         </div>
       </div>
       <div className="bold">
