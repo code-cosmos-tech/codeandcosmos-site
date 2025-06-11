@@ -1,17 +1,16 @@
-import { NavLink } from "react-router";
+import { useNavigate } from "react-router";
 
 export function Error() {
-  return (
-    <div className="error-wrapper">
-      <div className="glow-background" />
-      <div className="error-container">
-        <h1 className="error-404">404</h1>
-        <h2 className="error-heading">This page drifted into a black hole.</h2>
-        <p className="error-text">
-          The cosmos is vast, but the page you're seeking doesn't seem to exist.
-        </p>
-        <NavLink to="/" className="home-link">Teleport Back Home</NavLink>
+  const navigate = useNavigate()
+  return <>
+    <section>
+      <div className="error-hero">
+        <h1 className="e404">404</h1>
+        <div className="error-msg">
+          <p>Sorry, this page does not exist.</p>
+          <button className="btn contact-btn" onClick={() => navigate('/')}>Go home</button>
+        </div>
       </div>
-    </div>
-  );
+    </section>
+  </>
 }

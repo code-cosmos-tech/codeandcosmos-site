@@ -321,6 +321,32 @@ hr {
     justify-content: space-between
 }
 
+/*Error page*/
+.error-hero {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(242, 67, 67);
+    color: var(--text-light);
+    display: flex;
+    padding: 2rem;
+    align-items: flex-end;
+    justify-items: center;
+    font-family: "Poppins";
+}
+
+.e404 {
+    font-size: 18rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.error-msg {
+    margin-left: 10rem;
+    text-align: start;
+    font-size: xx-large;
+    margin-bottom: 4rem;
+}
+
 @media(max-width: 1020px) {
     /*for home*/
     main {
@@ -438,5 +464,18 @@ hr {
     .why {
         flex-direction: column;
         height: max-content;
+    }
+    /*Error page*/
+    .e404 {
+        font-size: 5rem;
+    }
+    .error-hero {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: start;
+    }
+    .error-msg {
+        margin: 0;
+        font-size: x-large;
     }
 }
