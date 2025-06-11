@@ -1,0 +1,95 @@
+.contact {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    width: 80%;
+    padding: 1rem 1rem 2rem 3.3rem;
+    margin-top: 5rem;
+    position: fixed;
+    bottom: 0;
+    top: 2rem;
+    overflow-y: auto;
+    font-family: "Poppins";
+}
+
+.center-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.slideUp {
+    animation: SlideUp 1s ease forwards;
+}
+
+.slideDown {
+    animation: SlideDown 1s ease forwards;
+}
+
+.close {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.contact-head h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.submition {
+    margin-top: 4rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+input, textarea {
+    border: none;
+    outline: none;
+    font-size: 1.75rem;
+    font-family: "Poppins";
+    border-bottom: 3px solid darkgray;
+    margin-bottom: 1rem;
+}
+
+input:focus, textarea:focus {
+    border-color: black;
+    transition-duration: 0.5s;
+}
+input::placeholder, textarea::placeholder {
+    color: var(--text-dark);
+}
+
+.contact-socials {
+    margin-top: 2rem;
+}
+
+.contact-socials a{
+    margin-right: 1.5rem;
+}
+
+@keyframes SlideUp {
+    from {
+        top: 100%
+    }
+    to {
+        top: 2rem;
+    }
+}
+
+@keyframes SlideDown {
+    from {
+        top: 3rem;
+    }
+    to {
+        top: 100%;
+    }
+}
+
+@media(max-width: 1020px) {
+    .contact {
+        width: 100%;
+    }
+}

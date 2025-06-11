@@ -1,43 +1,114 @@
-export function Service() {
-  return (
-    <div className="services-page-container">
-      <header className="services-header">
-        <h1>Our Services</h1>
-        <p className="text-muted">Explore what we can do to help your business grow.</p>
-      </header>
+import { useRef } from 'react';
+import VariableProximity from '../components/VariableProximity';
+import "../components/VariableProximity.css";
 
-      <section className="services-list section-container">
-        <div className="services-grid">
-          <div className="service-card">
-            <h4>Web Development</h4>
-            <p>Frontend, Backend, and Full-stack solutions tailored to your needs.</p>
-          </div>
-          <div className="service-card">
-            <h4>UI/UX Design</h4>
-            <p>Creating beautiful, intuitive user interfaces that enhance user experience.</p>
-          </div>
-          <div className="service-card">
-            <h4>E-commerce & SEO</h4>
-            <p>We optimize your site for both sales and search engines.</p>
-          </div>
-          <div className="service-card">
-            <h4>Performance Optimization</h4>
-            <p>Speed up your website and improve user retention with expert optimization.</p>
-          </div>
-          <div className="service-card">
-            <h4>Maintenance & Support</h4>
-            <p>Reliable ongoing support and maintenance to keep your site fresh and secure.</p>
-          </div>
-          <div className="service-card">
-            <h4>App Development</h4>
-            <p>Custom mobile and desktop app development using cutting-edge technologies.</p>
-          </div>
-          <div className="service-card">
-            <h4>Machine Learning</h4>
-            <p>Leverage AI and ML models to build intelligent, data-driven applications.</p>
-            </div>
+export function Service() {
+  const containerRef = useRef(null);
+
+  return <>
+    <section className="service">
+      <div className="service-hero">
+        <div
+          className="text1"
+          ref={containerRef}
+          style={{ position: 'relative' }}
+        >
+          <VariableProximity
+            label={"With expertise spanning the MERN stack,\n UI/UX design, cloud integration, and \nmodern DevOps practices, we deliver digital products \nthat are not only functional but future-ready."}
+            className={'variable-proximity-demo'}
+            fromFontVariationSettings="'wght' 400, 'opsz' 9"
+            toFontVariationSettings="'wght' 1000, 'opsz' 40"
+            containerRef={containerRef}
+            radius={50}
+            falloff='linear'
+          />
         </div>
-      </section>
-    </div>
-  );
+      </div>
+      <div className="s1">
+        <div className="part1">
+          <p>Learn & discover</p>
+          <div
+            className="s-text"
+            ref={containerRef}
+            style={{ position: 'relative' }}
+          >
+            <VariableProximity
+              label={"Understanding what's important to our \nusers and providing insights, guidance and \nstrategy to help us navigate the digital \nlandscape with confidence."}
+              className={'variable-proximity-demo'}
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={50}
+              falloff='linear'
+            />
+          </div>
+        </div>
+        <h1 className='step'>01</h1>
+      </div>
+      <div className="s-image1"></div>
+      <div className="s2">
+        <div className="part1">
+          <p>UX & Design</p>
+          <div
+            className="s-text"
+            ref={containerRef}
+            style={{ position: 'relative' }}
+          >
+            <VariableProximity
+              label={"Blending intuitive UX with stunning design \nto create websites that are as functional as \nthey are visually compelling. Let’s build a \nwebsite that doesn’t just capture attention \nbut creates lasting connections"}
+              className={'variable-proximity-demo'}
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={50}
+              falloff='linear'
+            />
+          </div>
+        </div>
+        <h1 className='step'>02</h1>
+      </div>
+      <div className="s3">
+        <div className="part1">
+          <p>Build & Test</p>
+          <div
+            className="s-text"
+            ref={containerRef}
+            style={{ position: 'relative' }}
+          >
+            <VariableProximity
+              label={"Combining technical expertise with \ninnovative design to build websites that are \nnot only visually stunning but fast, \nfunctional, and reliable."}
+              className={'variable-proximity-demo'}
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={50}
+              falloff='linear'
+            />
+          </div>
+        </div>
+        <h1 className='step'>03</h1>
+      </div>
+      <div className="s4">
+        <div className="part1">
+          <p>Maintenence & Support</p>
+          <div
+            className="s-text"
+            ref={containerRef}
+            style={{ position: 'relative' }}
+          >
+            <VariableProximity
+              label={"Keeping your website secure, functional, \noptimised and performing at its best long \nafter launch — so you can focus on your \nbusiness with confidence."}
+              className={'variable-proximity-demo'}
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={50}
+              falloff='linear'
+            />
+          </div>
+        </div>
+        <h1 className='step'>04</h1>
+      </div>
+    </section>
+  </>
 }
