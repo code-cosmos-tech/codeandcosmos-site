@@ -91,5 +91,6 @@ input::placeholder, textarea::placeholder {
 @media(max-width: 1020px) {
     .contact {
         width: 100%;
+        padding-left: 1.4rem;
     }
 }

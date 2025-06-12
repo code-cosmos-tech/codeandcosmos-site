@@ -85,9 +85,11 @@ a:hover {
     .data {
         flex-direction: column;
     }
-
+    .text p {
+        margin-bottom: 0;
+    }
     .data div {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
     .links {
         display: none;

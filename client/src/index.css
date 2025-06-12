@@ -348,6 +348,12 @@ hr {
     margin-bottom: 4rem;
 }
 
+@media(max-width: 450px) {
+    .headline {
+        display: none;
+    }
+}
+
 @media(max-width: 1020px) {
     /*for home*/
     main {
@@ -409,6 +415,7 @@ hr {
         font-size: medium;
     }
     .s1, .s2, .s3, .s4 {
+        padding: 1rem;
         height: max-content;
     }
 
