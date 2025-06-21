@@ -14,13 +14,6 @@ export function Navbar() {
     return (
         <header className='header'>
             <div className={menu ? "header-down header-up-down" : "header-up header-up-down"}>
-                <div className='nav'>
-                    <span>
-                        <span><NavLink to={'/'} onClick={handleClick} className="logo">Code&Cosmos</NavLink></span>
-                        <span className="headline">One byte at a time</span>
-                    </span>
-                    <div className="menu" onClick={handleClick}>{menu ? "Close" : "Menu"}</div>
-                </div>
                 <div className="nav-links">
                     <span><NavLink className={"nav-link"} to={'/work'} onClick={handleClick}>Work / </NavLink></span>
                     <span><NavLink className={"nav-link"} to={'/service'} onClick={handleClick}>Services</NavLink></span><br/>
@@ -30,7 +23,7 @@ export function Navbar() {
                 </div>
             </div>
             <div className="header-inner">
-                <span>
+                <span className='logo-container'>
                     <span><NavLink to={'/'} className="logo">Code&Cosmos</NavLink></span>
                     <span className="headline">One byte at a time</span>
                 </span>

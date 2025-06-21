@@ -7,10 +7,11 @@
     padding: 1.5rem;
     justify-content: space-between;
     color: black;
-    z-index: 0;
 }
 
 .headline {
+    position: absolute;
+    z-index: 10;
     margin-left: 0.75rem;
     color: var(--text-light);
 }
@@ -58,27 +59,23 @@
         flex-direction: column;
         font-size: 0.75;
         padding: 1.5rem;
-        justify-content: space-between;
+        justify-content: flex-end;
         color: black;
         z-index: 10;
     }
 
-    .nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    /* .links {
-        margin-bottom: 9rem;
-    } */
+     .header-inner {
+        z-index: 10;
+     }
 
     .nav-link {
+        width: 100%;
         text-decoration: none;
         font-size: 2.2rem;
         color: var(--text-light);
         cursor: pointer;
     }
+
     .nav-link:hover {
         text-decoration: underline;
     }
@@ -87,7 +84,7 @@
         position: absolute;
         height: 60vh;
         width: 100%;
-        background-color: #062c47;
+        background-color: var(--text-dark);
         animation: slideDown 1s ease forwards;
         overflow: hidden;
         z-index: 10;
@@ -96,6 +93,7 @@
     .btn {
         display: none;
     }
+
     .contact-btn {
         display: inline;
     }
@@ -118,7 +116,7 @@
         position: absolute;
         height: 60vh;
         width: 100%;
-        background-color: #062c47;
+        background-color: var(--text-dark);
         animation: slideUp 1s ease forwards;
         overflow: hidden;
         z-index: 10;
@@ -143,7 +141,9 @@
     }
 
     .menu {
-        display: inline;
+        position: relative;
+        display: inline-block;
+        z-index: 10;
         cursor: pointer;
     }
 }

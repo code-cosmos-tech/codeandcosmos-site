@@ -38,7 +38,7 @@ hr {
 .hero {
     height: 80vh;
     width: 100%;
-    background-color: var(--bg-color);
+    background-color: #3758ad;
     /* background-color: black; */
     /* background-image: linear-gradient(to bottom, black, transparent), url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
     background-size: cover;
@@ -72,7 +72,7 @@ hr {
     height: 100vh;
     width: 100%;
     color: var(--text-light);
-    background-image: url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://images.unsplash.com/photo-1646526724988-74432144de51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -363,16 +363,21 @@ hr {
         font-size: 8rem;
     }
     .brand {
+        height: inherit;
         flex-direction: column;
         justify-content: flex-end;
         align-items: start;
         padding: 0 0 2rem 1rem;
+    }
+    .hero {
+        height: 60vh;
     }
     .brand p {
         margin: 0;
         padding-left: 1rem;
     }
     .image-pencil {
+        height: 80vh;
         flex-direction: row;
         justify-content: center;
     }
@@ -386,13 +391,18 @@ hr {
         flex-direction: column;
     }
     .text1 {
+        white-space: normal;
         font-size: small;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     .text2 {
+        white-space: normal;
         font-size: x-small;
     }
     .bold {
         padding: 1rem;
+        height: 80vh;
     }
     .bold-head {
         font-size: 4rem;
@@ -485,5 +495,11 @@ hr {
     .error-msg {
         margin: 0;
         font-size: x-large;
+    }
+}
+
+@media(min-width: 400px ) and (max-width: 840px){
+    .name {
+        font-size:calc(8rem + 2rem);
     }
 }
