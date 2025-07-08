@@ -4,7 +4,7 @@ import { toast } from "react-toastify"
 import "./Contact.css";
 
 export function Contact() {
-    const { tab, handleContact } = useContact();
+    const { tab, handleContact, hasInteracted } = useContact();
     const [user, setUser] = useState({
         email: "",
         message: ""
@@ -57,7 +57,7 @@ export function Contact() {
     }
 
         return <section className="center-contact">
-            <section className={tab ? "contact slideUp" : "contact slideDown"}>
+            <section className={hasInteracted ? tab ? "contact slideUp" : "contact slideDown" : "notInteracted"}>
                 <div className="close">
                     <button className="btn contact-btn" onClick={handleContact}>close</button>
                 </div>

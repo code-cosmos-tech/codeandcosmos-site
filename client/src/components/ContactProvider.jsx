@@ -4,12 +4,14 @@ export const Contact = createContext();
 
 export function Provider({children}) {
     const [tab, setTab] = useState(false);
+    const [hasInteracted, setHasInteracted] = useState(false);
 
-    const handleContact = () => { 
+    const handleContact = () => {
+        setHasInteracted(true);
         setTab(!tab);
     }
 
-    return <Contact.Provider value={{tab, handleContact}}>
+    return <Contact.Provider value={{tab, handleContact, hasInteracted}}>
         {children}
     </Contact.Provider>
 }

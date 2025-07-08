@@ -6,14 +6,16 @@ import "./Navbar.css";
 export function Navbar() {
     const [menu, setMenu] = useState(false);
     const {handleContact} = useContact();
+    const [hasInteracted, setHasInteracted] = useState(false);
 
     const handleClick = () => {
+        setHasInteracted(true);
         setMenu(!menu)
     }
 
     return (
         <header className='header'>
-            <div className={menu ? "header-down header-up-down" : "header-up header-up-down"}>
+            <div className={hasInteracted ? menu ? "header-down header-up-down" : "header-up header-up-down" : "notInteracted"}>
                 <div className="nav-links">
                     <span><NavLink className={"nav-link"} to={'/work'} onClick={handleClick}>Work / </NavLink></span>
                     <span><NavLink className={"nav-link"} to={'/service'} onClick={handleClick}>Services</NavLink></span><br/>

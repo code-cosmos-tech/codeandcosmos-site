@@ -130,12 +130,44 @@ hr {
 }
 
 /*Work page*/
-.work-hero {
-    height: 100vh;
+.work {
+    font-family: "Poppins";
     width: 100%;
+}
+
+.work img {
+    height: 400px;
+    transition: transform 0.5s ease;
+}
+
+.work img:hover {
+    transform: scale(1.05);
+}
+
+.work-hero {
+    display: flex;
+    padding: 2rem;
+    align-items: end;
+    color: var(--text-light);
+    font-size: xx-large;
+    height: 100vh;
     background-image: linear-gradient(to bottom, black, transparent), url("https://images.unsplash.com/photo-1509483730228-811e47696246?q=80&w=2078&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.urbancartel {
+    padding: 2rem;
+    height: fit-content;
+    margin-bottom: 2rem;
+}
+
+.adminpanel {
+    padding: 2rem;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
 }
 
 /*Service page*/
@@ -428,6 +460,16 @@ hr {
         padding: 1rem;
         height: max-content;
     }
+
+    /*work*/
+    .work-hero {
+        height: 70vh;
+    }
+    .work img {
+        height: 150px;
+    }
+    .urbancartel {padding: 1rem;}
+    .adminpanel {padding: 1rem;}
 
     /*agency page*/
     .agency-hero {
