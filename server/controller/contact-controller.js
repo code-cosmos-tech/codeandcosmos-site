@@ -4,6 +4,13 @@ const nodemailer = require("nodemailer");
 const contact = async (req, res, next) => {
     try {
         const { email, message } = req.body;
+        
+        // Validate input
+        if (!email || !message) {
+            return res.status(400).json({ msg: "Email and message are required" });
+        }
+
+        // Save to database
         await Contact.create({ email, message });
 
         const transporter = nodemailer.createTransport({
@@ -17,17 +24,21 @@ const contact = async (req, res, next) => {
             }
         });
 
+        // Verify transporter configuration
+        await transporter.verify();
+        console.log("✓ SMTP connection verified");
+
         const notifyOwner = {
             from: process.env.EMAIL,
             to: process.env.EMAIL,
             subject: "New Contact Form Submission",
-            text: `You have a new message:\n\nFrom:${email}\nMessage:\n${message}`,
+            text: `You have a new message:\n\nFrom: ${email}\nMessage:\n${message}`,
         };
 
         const notifyUser = {
             from: process.env.EMAIL,
             to: email,
-            subject: "We have received your message -Code and Cosmos",
+            subject: "We have received your message - Code and Cosmos",
             html: `
                 <!DOCTYPE html>
 <html lang="en">
@@ -111,19 +122,38 @@ const contact = async (req, res, next) => {
   </div>
 </body>
 </html>
-
             `,
         };
+
+        // Send emails BEFORE responding to client
+        console.log("Sending emails...");
+        await transporter.sendMail(notifyOwner);
+        console.log("✓ Owner notification sent");
+        
+        await transporter.sendMail(notifyUser);
+        console.log("✓ User confirmation sent");
+
+        // Only send success response after emails are sent
         res.status(201).json({ msg: "Message sent successfully." });
 
-        try {
-            await transporter.sendMail(notifyOwner);
-            await transporter.sendMail(notifyUser);
-        } catch (emailError) {
-            console.error("Failed to send email:", emailError);
-            return res.status(500).json({ msg: "Failed to send email", error: emailError.message });
-        }
     } catch (error) {
+        console.error("Error in contact controller:", error);
+        
+        // Provide specific error messages
+        if (error.code === 'EAUTH') {
+            return res.status(500).json({ 
+                msg: "Email authentication failed. Please check email credentials.",
+                error: "Authentication error"
+            });
+        }
+        
+        if (error.code === 'ESOCKET') {
+            return res.status(500).json({ 
+                msg: "Failed to connect to email server",
+                error: "Connection error"
+            });
+        }
+        
         next(error);
     }
 }
