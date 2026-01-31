@@ -131,21 +131,34 @@ hr {
 
 /*Work page*/
 .work {
+    display: flex;
+    flex-direction: column;
     font-family: "Poppins";
     width: 100%;
+    align-items: center;
 }
 
-.work img {
+.img-wrapper {
     height: 400px;
-    transition: transform 0.5s ease;
+    width: 100%;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 
-.work img:hover {
-    transform: scale(1.05);
+.img-wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.img-wrapper img:hover {
+    transform: scale(1.15);
 }
 
 .work-hero {
     display: flex;
+    width: 100%;
     padding: 2rem;
     align-items: end;
     color: var(--text-light);
@@ -156,18 +169,22 @@ hr {
     background-repeat: no-repeat;
 }
 
-.urbancartel {
+.work-hero h1 {
+    width: 50%;
+    margin-bottom: 5rem;
+}
+
+.urbancartel, .adminpanel, .agrocare-ai-wrapper {
     padding: 2rem;
     height: fit-content;
+    width: 60%;
     margin-bottom: 2rem;
 }
 
-.adminpanel {
-    padding: 2rem;
-    height: fit-content;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
+.agrocare-ai {
+    height: 400px;
+    width: 100%;
+    border-radius: 2rem;
 }
 
 /*Service page*/
@@ -386,7 +403,7 @@ hr {
     }
 }
 
-@media(max-width: 1020px) {
+@media(max-width: 820px) {
     /*for home*/
     main {
         width: auto;
@@ -441,6 +458,7 @@ hr {
     }
     /*service page*/
     .service-hero {
+        height: 70vh;
         flex-direction: row;
         padding: 0;
     }
@@ -452,6 +470,7 @@ hr {
     }
     .s-image1 {
         background-position: center;
+        height: 70vh;
     }
     .s-text {
         font-size: medium;
@@ -464,16 +483,22 @@ hr {
     /*work*/
     .work-hero {
         height: 70vh;
+        font-size: medium;
     }
     .work img {
         height: 150px;
     }
-    .urbancartel {padding: 1rem;}
-    .adminpanel {padding: 1rem;}
+    .urbancartel, .adminpanel, .agrocare-ai-wrapper {
+        padding: 1rem;
+        width: 100%;
+    }
+    .img-wrapper {height: fit-content;}
+    .agrocare-ai {height: 200px;}
 
     /*agency page*/
     .agency-hero {
         background-position: center;
+        height: 70vh;
         flex-direction: column;
         justify-content: center;
         align-items: start;
@@ -499,6 +524,10 @@ hr {
     .culture-text div {
         width: auto;
     }
+    .culture-image {
+        margin-top: 1rem;
+        height: 70vh;
+    }
     /*Career page*/
     .career-hero {
         padding-left: 0;
@@ -516,6 +545,7 @@ hr {
         width: auto;
     }
     .career-image {
+        height: 70vh;
         width: auto;
     }
     .sub-head {
