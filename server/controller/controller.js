@@ -1,5 +1,3 @@
-const express = require("express");
-
 const home = (req, res, next) => {
     try {
         res.send("Home page");

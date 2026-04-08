@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router';
 import { useContact } from './ContactProvider';
+import ScrambledText from './ScrambledText';
 import "./Navbar.css";
 
 export function Navbar() {
@@ -26,15 +27,67 @@ export function Navbar() {
             </div>
             <div className="header-inner">
                 <span className='logo-container'>
-                    <span><NavLink to={'/'} className="logo">Code&Cosmos</NavLink></span>
+                    <span>
+                        <NavLink to={'/'} className="logo">
+                        <ScrambledText 
+                            className="scrambled-text-demo"
+                            radius={80}
+                            duration={0.5}
+                            speed={0.8}
+                            scrambleChars=".?&"
+                        >
+                            Code&Cosmos
+                        </ScrambledText>
+                        </NavLink>
+                    </span>
                     <span className="headline">One byte at a time</span>
                 </span>
 
                 <nav className='tabs'>
-                    <span><NavLink to={'/work'} className={"nav-link"}>Work</NavLink></span>
-                    <span><NavLink to={'/service'} className={"nav-link"}>Services</NavLink></span>
-                    <span><NavLink to={'/agency'} className={"nav-link"}>Agency</NavLink></span>
-                    <span><NavLink to={'/careers'} className={"nav-link"}>Careers</NavLink></span>
+                    <span><NavLink to={'/work'} className={"nav-link"}>
+                        <ScrambledText 
+                            className="scrambled-text-demo"
+                            radius={80}
+                            duration={0.5}
+                            speed={0.8}
+                            scrambleChars=".?&"
+                        >
+                            Work
+                        </ScrambledText>
+                    </NavLink></span>
+                    <span><NavLink to={'/service'} className={"nav-link"}>
+                        <ScrambledText 
+                            className="scrambled-text-demo"
+                            radius={80}
+                            duration={0.5}
+                            speed={0.8}
+                            scrambleChars=".?&"
+                        >
+                            Services
+                        </ScrambledText>
+                    </NavLink></span>
+                    <span><NavLink to={'/agency'} className={"nav-link"}>
+                        <ScrambledText 
+                            className="scrambled-text-demo"
+                            radius={80}
+                            duration={0.5}
+                            speed={0.8}
+                            scrambleChars=".?&"
+                        >
+                            Agency
+                        </ScrambledText>
+                    </NavLink></span>
+                    <span><NavLink to={'/careers'} className={"nav-link"}>
+                        <ScrambledText 
+                            className="scrambled-text-demo"
+                            radius={80}
+                            duration={0.5}
+                            speed={0.8}
+                            scrambleChars=".?&"
+                        >
+                            Careers
+                        </ScrambledText>
+                    </NavLink></span>
                 </nav>
                 <button className="btn" onClick={handleContact}>Contact</button>
                 <div className="menu" onClick={handleClick}>{menu ? "Close" : "Menu"}</div>

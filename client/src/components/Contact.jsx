@@ -9,6 +9,7 @@ export function Contact() {
         email: "",
         message: ""
     });
+    const [loading, setLoading] = useState(false);
 
     const handleInput = (e) => {
         const name = e.target.name;
@@ -22,37 +23,49 @@ export function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("https://codeandcosmos-site.onrender.com/form/contact", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
-        const data = await response.json();
-        if (response.ok) {
-            setUser({ email: "", message: "" });
-            toast.success(data.msg, {
+        if (loading) return;
+        setLoading(true);
+        try {
+            const response = await fetch("https://codeandcosmos-site.onrender.com/form/contact", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+            const data = await response.json();
+            if (response.ok) {
+                setUser({ email: "", message: "" });
+                toast.success(data.msg, {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            } else {
+                toast.error(data.msg, {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            }
+        } catch {
+            toast.error("Something went wrong. Please try again.", {
                 position: "bottom-right",
                 autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
                 theme: "dark",
             });
-        } else {
-            toast.error(data.msg, {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -71,7 +84,7 @@ export function Contact() {
                     <form onSubmit={handleSubmit}>
                         <input type="email" placeholder="Your email" name="email" id="email" value={user.email} onChange={handleInput} autoComplete="off" />
                         <textarea name="message" rows={8} id="message" placeholder="Your message" value={user.message} onChange={handleInput} autoComplete="off"></textarea>
-                        <button className="btn contact-btn">Submit</button>
+                        <button className="btn contact-btn" disabled={loading}>{loading ? "Sending..." : "Submit"}</button>
                     </form>
                 </div>
                 <div className="contact-socials">

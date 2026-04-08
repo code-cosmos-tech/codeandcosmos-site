@@ -3,11 +3,11 @@ const { Schema, model } = require('mongoose');
 const contactSchema = new Schema({
     email : {
         type: String,
-        require: true
+        required: true
     },
     message: {
         type: String,
-        require: true
+        required: true
     }
 })
 

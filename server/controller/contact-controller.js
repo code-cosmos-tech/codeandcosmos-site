@@ -1,46 +1,31 @@
 const Contact = require("../models/contact-model.js");
 const nodemailer = require("nodemailer");
 
-const contact = async (req, res, next) => {
-    try {
-        const { email, message } = req.body;
-        
-        // Validate input
-        if (!email || !message) {
-            return res.status(400).json({ msg: "Email and message are required" });
-        }
+// Create transporter once (not per request)
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // STARTTLS - works better on hosted platforms than port 465
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASS
+    }
+});
 
-        // Save to database
-        await Contact.create({ email, message });
+const sendEmails = async (email, message) => {
+    const notifyOwner = {
+        from: process.env.EMAIL,
+        to: process.env.EMAIL,
+        subject: "New Contact Form Submission",
+        text: `You have a new message:\n\nFrom: ${email}\nMessage:\n${message}`,
+    };
 
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.EMAIL,
-                pass: process.env.EMAIL_PASS
-            },
-            tls: {
-                rejectUnauthorized: false,
-            }
-        });
-
-        // Verify transporter configuration
-        await transporter.verify();
-        console.log("✓ SMTP connection verified");
-
-        const notifyOwner = {
-            from: process.env.EMAIL,
-            to: process.env.EMAIL,
-            subject: "New Contact Form Submission",
-            text: `You have a new message:\n\nFrom: ${email}\nMessage:\n${message}`,
-        };
-
-        const notifyUser = {
-            from: process.env.EMAIL,
-            to: email,
-            subject: "We have received your message - Code and Cosmos",
-            html: `
-                <!DOCTYPE html>
+    const notifyUser = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: "We have received your message - Code and Cosmos",
+        html: `
+            <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -122,40 +107,38 @@ const contact = async (req, res, next) => {
   </div>
 </body>
 </html>
-            `,
-        };
+        `,
+    };
 
-        // Send emails BEFORE responding to client
-        console.log("Sending emails...");
-        await transporter.sendMail(notifyOwner);
-        console.log("✓ Owner notification sent");
-        
-        await transporter.sendMail(notifyUser);
-        console.log("✓ User confirmation sent");
+    await transporter.sendMail(notifyOwner);
+    console.log("✓ Owner notification sent");
 
-        // Only send success response after emails are sent
+    await transporter.sendMail(notifyUser);
+    console.log("✓ User confirmation sent");
+};
+
+const contact = async (req, res, next) => {
+    try {
+        const { email, message } = req.body;
+
+        if (!email || !message) {
+            return res.status(400).json({ msg: "Email and message are required" });
+        }
+
+        await Contact.create({ email, message });
+
+        // Respond to the client immediately — don't block on email delivery
         res.status(201).json({ msg: "Message sent successfully." });
+
+        // Send emails in the background after responding
+        sendEmails(email, message).catch(err => {
+            console.error("Background email error:", err.message);
+        });
 
     } catch (error) {
         console.error("Error in contact controller:", error);
-        
-        // Provide specific error messages
-        if (error.code === 'EAUTH') {
-            return res.status(500).json({ 
-                msg: "Email authentication failed. Please check email credentials.",
-                error: "Authentication error"
-            });
-        }
-        
-        if (error.code === 'ESOCKET') {
-            return res.status(500).json({ 
-                msg: "Failed to connect to email server",
-                error: "Connection error"
-            });
-        }
-        
         next(error);
     }
-}
+};
 
 module.exports = contact;

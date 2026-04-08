@@ -1,0 +1,18 @@
+.text-block {
+  width: 10vw;
+  font-family: monospace;
+  font-size: clamp(9px, 2vw, 18px);
+  color: #fff;
+}
+
+.char {
+  will-change: transform;
+  display: inline-block;
+}
+
+@media(max-width: 1020px) {
+    .text-block {
+        font-size: large;
+        width: 25vw;
+    }
+}
