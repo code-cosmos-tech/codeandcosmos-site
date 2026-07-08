@@ -26,7 +26,7 @@ export function Contact() {
         if (loading) return;
         setLoading(true);
         try {
-            const response = await fetch("https://codeandcosmos-site.onrender.com/form/contact", {
+            const response = await fetch("https://codeandcosmos-server.onrender.com/form/contact", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
