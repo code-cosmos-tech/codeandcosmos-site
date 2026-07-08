@@ -149,6 +149,7 @@ const sendEmails = async (req, res, next) => {
 
         res.status(201).json({msg: "Message sent successfully."});
     } catch (error) {
+        console.log("Contact error: ", error);
         next({message: "Failed to send the message."});
     }
 };
