@@ -9,7 +9,7 @@ const errorFunction = require("./middlewares/error-func.js");
 const cors = require("cors");
 
 const corsOption = {
-    origin: "https://codeandcosmos.onrender.com",
+    origin: "https://codeandcosmos.vercel.app",
     methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
     credentials: true
 }
